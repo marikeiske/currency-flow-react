@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { CurrencyInput } from '@/components/CurrencyInput';
 import { ExchangeRateCard } from '@/components/ExchangeRateCard';
+import { ApiKeyInfo } from '@/components/ApiKeyInfo';
 import { useCurrencyRates } from '@/hooks/useCurrencyRates';
 import { Card } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -112,7 +113,7 @@ const Index = () => {
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <TrendingUp className="w-4 h-4" />
-            Powered by HG Brasil Finance API
+            Demo com cotações simuladas • Baseado na API HG Brasil
           </div>
         </div>
 
@@ -187,16 +188,20 @@ const Index = () => {
           ) : null}
         </div>
 
-        {/* Footer Info */}
-        <Card className="p-6 bg-gradient-card">
-          <div className="text-center space-y-2">
-            <h3 className="font-semibold">Como funciona?</h3>
-            <p className="text-sm text-muted-foreground">
-              Digite um valor em qualquer uma das moedas e veja a conversão automática para as demais.
-              As cotações são atualizadas em tempo real através da API da HG Brasil.
-            </p>
-          </div>
-        </Card>
+        {/* Info Cards */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card className="p-6 bg-gradient-card">
+            <div className="text-center space-y-2">
+              <h3 className="font-semibold">Como funciona?</h3>
+              <p className="text-sm text-muted-foreground">
+                Digite um valor em qualquer uma das moedas e veja a conversão automática para as demais.
+                As cotações são simuladas para demonstração do funcionamento.
+              </p>
+            </div>
+          </Card>
+          
+          <ApiKeyInfo />
+        </div>
       </div>
     </div>
   );
